@@ -1,16 +1,6 @@
-import {
-  DashboardLayout,
-  DashboardLayoutDefault,
-  DashboardLayoutError,
-  DashboardLayoutNotFound,
-  DashboardLayoutPermissionDenied,
-  LandingLayout,
-  LandingLayoutDefault,
-  LandingLayoutError,
-  LandingLayoutNotFound,
-  LandingLayoutPermissionDenied
-} from '@/layouts';
-import { AppError, AppNotFound, AppPermissionDenied, Products, SignIn, SignUp, Users } from '@/pages';
+import AppLayout from '@/layouts/private/AppLayout';
+import LandingLayout from '@/layouts/public/LandingLayout';
+import { AppError, AppNotFound, AppPermissionDenied, Dashboard, SignIn, SignUp } from '@/pages';
 import { TRouteConfig } from '@/router';
 
 import PATHS from './paths';
@@ -29,73 +19,31 @@ const routerConfig: TRouteConfig = {
       },
       children: [
         {
-          element: {
-            index: true,
-            component: LandingLayoutDefault,
-            errorComponent: LandingLayoutError
-          }
-        },
-        {
           path: PATHS.PAGE.SIGN_IN(),
           element: {
-            component: SignIn,
-            errorComponent: LandingLayoutError
+            component: SignIn
           }
         },
         {
           path: PATHS.PAGE.SIGN_UP(),
           element: {
-            component: SignUp,
-            errorComponent: LandingLayoutError
-          }
-        },
-        {
-          path: PATHS.SPECIAL.REST(),
-          element: {
-            component: LandingLayoutNotFound,
-            errorComponent: LandingLayoutError
+            component: SignUp
           }
         }
       ]
     },
     {
-      path: PATHS.LAYOUT.DASHBOARD(),
+      path: PATHS.LAYOUT.APPLAYOUT(),
       element: {
-        component: DashboardLayout,
-        isPrivate: true,
-        fallbackPermissionDenied: AppPermissionDenied
+        component: AppLayout,
+        isPrivate: true
       },
       children: [
         {
+          path: PATHS.PAGE.DASHBOARD(),
           element: {
-            index: true,
-            component: DashboardLayoutDefault,
-            errorComponent: DashboardLayoutError
-          }
-        },
-        {
-          path: PATHS.PAGE.PRODUCTS(),
-          element: {
-            component: Products,
-            isPrivate: true,
-            fallbackPermissionDenied: DashboardLayoutPermissionDenied,
-            errorComponent: DashboardLayoutError
-          }
-        },
-        {
-          path: PATHS.PAGE.USERS(),
-          element: {
-            component: Users,
-            isPrivate: true,
-            fallbackPermissionDenied: DashboardLayoutPermissionDenied,
-            errorComponent: DashboardLayoutError
-          }
-        },
-        {
-          path: PATHS.SPECIAL.REST(),
-          element: {
-            component: DashboardLayoutNotFound,
-            errorComponent: DashboardLayoutError
+            component: Dashboard,
+            isPrivate: true
           }
         }
       ]

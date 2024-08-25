@@ -5,7 +5,6 @@ export type TRouteCommon = {
 };
 
 export type TRouteElement = {
-  index?: boolean;
   component: React.FC;
   isPrivate?: boolean;
   fallbackPermissionDenied?: React.FC;

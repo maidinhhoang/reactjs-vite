@@ -111,6 +111,13 @@ module.exports = {
         printWidth: 140,
         jsxSingleQuote: true
       }
+    ],
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: false
+      }
     ]
   },
   overrides: [

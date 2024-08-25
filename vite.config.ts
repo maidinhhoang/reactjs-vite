@@ -18,7 +18,12 @@ const hotReload = (): PluginOption => ({
 export default defineConfig({
   plugins: [react(), eslint(), hotReload()],
   server: {
-    port: 3000
+    host: true,
+    port: 3000,
+    open: true,
+    hmr: {
+      overlay: false
+    }
   },
   css: {
     preprocessorOptions: {

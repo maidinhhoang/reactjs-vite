@@ -1,17 +1,13 @@
-import { TPathParams } from './types';
-
 const PATHS = {
   LAYOUT: {
-    LANDING: (): string => '/',
-    DASHBOARD: (): string => '/dashboard'
+    LANDING: (): string => '/auth',
+    APPLAYOUT: (): string => '/'
   },
   PAGE: {
+    DASHBOARD: (): string => '/',
     SIGN_IN: (): string => '/sign-in',
     SIGN_UP: (): string => '/sign-up',
-    USERS: (): string => '/users',
-    PRODUCTS: (): string => '/products',
-    NOT_FOUND: (): string => '/not-found',
-    PRODUCT_DETAIL: (params?: TPathParams): string => `/products/${params?.slug || ':slug'}`
+    NOT_FOUND: (): string => '/not-found'
   },
   SPECIAL: {
     EMPTY: (): string => '',

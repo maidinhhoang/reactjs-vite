@@ -27,6 +27,5 @@ export const SignUp = lazy(() => retryLoadComponent(() => import('@/pages/public
 // [END] Public
 
 // [BEGIN] Private
-export const Products = lazy(() => retryLoadComponent(() => import('@/pages/private/Products')));
-export const Users = lazy(() => retryLoadComponent(() => import('@/pages/private/Users')));
+export const Dashboard = lazy(() => retryLoadComponent(() => import('@/pages/private/Dashboard')));
 // [END] Private
